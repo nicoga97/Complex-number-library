@@ -1,5 +1,7 @@
 package Main;
 
+import java.lang.reflect.Array;
+
 public class ComplexNumber {
     private double realPart;
     private double imaginaryPart;
@@ -9,35 +11,27 @@ public class ComplexNumber {
         this.realPart=realPart;
     }
 
-    public static ComplexNumber complexAdd(ComplexNumber a, ComplexNumber b){
-        return new ComplexNumber(a.getRealPart()+b.getRealPart(),a.getImaginaryPart()+b.getImaginaryPart());
+    public void conjuate(){
+        imaginaryPart=imaginaryPart*(-1);
     }
 
-    public static ComplexNumber complexSubstraction(ComplexNumber a, ComplexNumber b){
-        return new ComplexNumber(a.getRealPart()-b.getRealPart(),a.getImaginaryPart()-b.getImaginaryPart());
+    public  double getModulus(){
+        return Math.sqrt(Math.pow(realPart,2)+Math.pow(imaginaryPart,2));
     }
-
-    public static ComplexNumber complexMultiplication(ComplexNumber a, ComplexNumber b){
-        return new ComplexNumber((a.getRealPart()*b.getRealPart())-(a.getImaginaryPart()*b.getImaginaryPart()),((a.getRealPart()*b.getImaginaryPart())+(b.getRealPart()*a.getImaginaryPart())));
-    }
-
-    public static ComplexNumber complexDivision(ComplexNumber a, ComplexNumber b){
-        return new ComplexNumber(((a.getRealPart()*b.getRealPart())+(a.getImaginaryPart()+b.getImaginaryPart()))/(Math.pow(b.getImaginaryPart(),2)+Math.pow(b.getRealPart(),2)),((b.getRealPart()*a.getImaginaryPart())-(a.getRealPart()*b.getImaginaryPart()))/(Math.pow(b.getRealPart(),2)+Math.pow(b.getImaginaryPart(),2)));
-    }
-
-    public static ComplexNumber complexConjuate(ComplexNumber a){
-        a.setImaginaryPart(a.getImaginaryPart()*(-1));
-        return a;
-    }
-
-    public static double complexModulus(){
-        return 1.0;
-    }
-
-
 
     public double getRealPart() {
         return realPart;
+    }
+
+    public double getPhase(){
+        return Math.atan(imaginaryPart/realPart);
+    }
+
+    public double[] getAsPolar(){
+        double [] a= new double[2];
+        a[0]=getModulus();
+        a[1]=getPhase();
+        return a;
     }
 
     public void setRealPart(double realPart) {
