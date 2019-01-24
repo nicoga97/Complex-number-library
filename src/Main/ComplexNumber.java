@@ -1,6 +1,6 @@
 package Main;
 
-import java.lang.reflect.Array;
+import java.util.Objects;
 
 public class ComplexNumber {
     private double realPart;
@@ -11,7 +11,7 @@ public class ComplexNumber {
         this.realPart=realPart;
     }
 
-    public void conjuate(){
+    public void conjugate(){
         imaginaryPart=imaginaryPart*(-1);
     }
 
@@ -52,5 +52,19 @@ public class ComplexNumber {
                 + realPart +
                 "," + imaginaryPart +
                 ']';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ComplexNumber)) return false;
+        ComplexNumber that = (ComplexNumber) o;
+        return Double.compare(that.realPart, realPart) == 0 &&
+                Double.compare(that.imaginaryPart, imaginaryPart) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(realPart, imaginaryPart);
     }
 }
