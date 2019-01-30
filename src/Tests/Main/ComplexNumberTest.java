@@ -9,7 +9,7 @@ class ComplexNumberTest {
         ComplexNumber a = new ComplexNumber(2,5);
         ComplexNumber b = new ComplexNumber(2,-5);
         a.conjugate();
-        assertTrue(a.equals(b));
+        assertEquals(a,b);
     }
 
     @org.junit.jupiter.api.Test

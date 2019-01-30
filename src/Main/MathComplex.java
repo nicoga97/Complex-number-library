@@ -18,4 +18,13 @@ public class MathComplex {
         return new ComplexNumber(((a.getRealPart()*b.getRealPart())+(a.getImaginaryPart()*b.getImaginaryPart()))/(Math.pow(b.getImaginaryPart(),2)+Math.pow(b.getRealPart(),2)),((b.getRealPart()*a.getImaginaryPart())-(a.getRealPart()*b.getImaginaryPart()))/(Math.pow(b.getRealPart(),2)+Math.pow(b.getImaginaryPart(),2)));
     }
 
+    public static ComplexMatrix MatrixAddition(ComplexMatrix a,ComplexMatrix b){
+        if(a.rowLenght()==b.rowLenght() && a.columnLenght()==b.columnLenght()){
+
+        }else{
+            throw new Exception();
+        }
+
+    }
+
 }

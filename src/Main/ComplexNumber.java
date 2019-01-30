@@ -46,12 +46,17 @@ public class ComplexNumber {
         this.imaginaryPart = imaginaryPart;
     }
 
+    public void inverse(){
+        realPart=-realPart;
+        imaginaryPart=-imaginaryPart;
+    }
+
     @Override
     public String toString() {
-        return "Main.ComplexNumber[" +
-                + realPart +
-                "," + imaginaryPart +
-                ']';
+        return
+                 realPart +
+                "+" + imaginaryPart +
+                'i';
     }
 
     @Override
