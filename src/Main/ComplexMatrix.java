@@ -32,6 +32,7 @@ public class ComplexMatrix {
         }
     }
 
+
     public void adjoint(){
         transpose();
         conjugate();

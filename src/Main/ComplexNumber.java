@@ -7,30 +7,30 @@ public class ComplexNumber {
     private double imaginaryPart;
 
     public ComplexNumber(double realPart, double imaginaryPart) {
-        this.imaginaryPart=imaginaryPart;
-        this.realPart=realPart;
+        this.imaginaryPart = imaginaryPart;
+        this.realPart = realPart;
     }
 
-    public void conjugate(){
-        imaginaryPart=imaginaryPart*(-1);
+    public void conjugate() {
+        imaginaryPart = imaginaryPart * (-1);
     }
 
-    public  double getModulus(){
-        return Math.sqrt(Math.pow(realPart,2)+Math.pow(imaginaryPart,2));
+    public double getModulus() {
+        return Math.sqrt(Math.pow(realPart, 2) + Math.pow(imaginaryPart, 2));
     }
 
     public double getRealPart() {
         return realPart;
     }
 
-    public double getPhase(){
-        return Math.atan(imaginaryPart/realPart);
+    public double getPhase() {
+        return Math.atan(imaginaryPart / realPart);
     }
 
-    public double[] getAsPolar(){
-        double [] a= new double[2];
-        a[0]=getModulus();
-        a[1]=getPhase();
+    public double[] getAsPolar() {
+        double[] a = new double[2];
+        a[0] = getModulus();
+        a[1] = getPhase();
         return a;
     }
 
@@ -46,17 +46,24 @@ public class ComplexNumber {
         this.imaginaryPart = imaginaryPart;
     }
 
-    public void inverse(){
-        realPart=-realPart;
-        imaginaryPart=-imaginaryPart;
+    public void inverse() {
+        realPart = -realPart;
+        imaginaryPart = -imaginaryPart;
     }
 
     @Override
     public String toString() {
-        return
-                 realPart +
-                "+" + imaginaryPart +
-                'i';
+        if (imaginaryPart >= 0) {
+            return
+                    realPart +
+                            " +" + imaginaryPart +
+                            'i';
+        }else{
+            return
+                    realPart +
+                            " " + imaginaryPart +
+                            'i';
+        }
     }
 
     @Override
