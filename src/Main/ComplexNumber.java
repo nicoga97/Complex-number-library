@@ -6,23 +6,43 @@ public class ComplexNumber {
     private double realPart;
     private double imaginaryPart;
 
+    /**
+     * Complex number object constructor.
+     * @param realPart Real part of the complex number.
+     * @param imaginaryPart Imaginary part of the complex number.
+     */
     public ComplexNumber(double realPart, double imaginaryPart) {
         this.imaginaryPart = imaginaryPart;
         this.realPart = realPart;
     }
 
+    /**
+     * Conjugate the complex number.
+     */
     public void conjugate() {
         imaginaryPart = imaginaryPart * (-1);
     }
 
+    /**
+     * Calculate the modulus of the complex number.
+     * @return The modulus of the complex number.
+     */
     public double getModulus() {
         return Math.sqrt(Math.pow(realPart, 2) + Math.pow(imaginaryPart, 2));
     }
 
+    /**
+     * Give the real part of the complex number.
+     * @return Real part of the complex number.
+     */
     public double getRealPart() {
         return realPart;
     }
 
+    /**
+     * Calculates the phase of a complex number.
+     * @return Phase of the complex number.
+     */
     public double getPhase() {
         return Math.atan(imaginaryPart / realPart);
     }
@@ -34,18 +54,33 @@ public class ComplexNumber {
         return a;
     }
 
+    /**
+     * Changes the real part of the complex number.
+     * @param realPart New real part value for the complex number.
+     */
     public void setRealPart(double realPart) {
-        this.realPart = realPart;
+                this.realPart = realPart;
     }
 
+    /**
+     * Gives the imaginary part of a complex number.
+     * @return Imaginary part of the complex  number.
+     */
     public double getImaginaryPart() {
         return imaginaryPart;
     }
 
+    /**
+     * Changes the imaginary  part of the complex number.
+     * @param imaginaryPart New imaginary part value for the complex number.
+     */
     public void setImaginaryPart(double imaginaryPart) {
         this.imaginaryPart = imaginaryPart;
     }
 
+    /**
+     * Apply the inverse form on the complex number.
+     */
     public void inverse() {
         realPart = -realPart;
         imaginaryPart = -imaginaryPart;

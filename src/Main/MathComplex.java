@@ -2,18 +2,41 @@ package Main;
 
 public class MathComplex {
 
+    /**
+     * Make addition of two complex numbers.
+     * @param a Complex number to make the addition.
+     * @param b Complex number to make the addition.
+     * @return Result of the addition of the two complex numbers.
+     */
     public static ComplexNumber complexAdd(ComplexNumber a, ComplexNumber b){
         return new ComplexNumber(a.getRealPart()+b.getRealPart(),a.getImaginaryPart()+b.getImaginaryPart());
     }
 
+    /**
+     * Make subtraction of two complex numbers.
+     * @param a Complex number to make the subtraction.
+     * @param b Complex number to make the subtraction.
+     * @return Result of the subtraction of the two complex numbers.
+     */
     public static ComplexNumber complexSubstraction(ComplexNumber a, ComplexNumber b){
         return new ComplexNumber(a.getRealPart()-b.getRealPart(),a.getImaginaryPart()-b.getImaginaryPart());
     }
 
+    /**
+     * Make multiplication of two complex numbers.
+     * @param a Complex number to make the multiplication.
+     * @param b Complex number to make the multiplication.
+     * @return Result of the multiplication of the two complex numbers.
+     */
     public static ComplexNumber complexMultiplication(ComplexNumber a, ComplexNumber b){
         return new ComplexNumber((a.getRealPart()*b.getRealPart())-(a.getImaginaryPart()*b.getImaginaryPart()),((a.getRealPart()*b.getImaginaryPart())+(b.getRealPart()*a.getImaginaryPart())));
     }
-
+    /**
+     * Make division of two complex numbers.
+     * @param a Complex number to make the division.
+     * @param b Complex number to make the division.
+     * @return Result of the division of the two complex numbers.
+     */
     public static ComplexNumber complexDivision(ComplexNumber a, ComplexNumber b){
         return new ComplexNumber(((a.getRealPart()*b.getRealPart())+(a.getImaginaryPart()*b.getImaginaryPart()))/(Math.pow(b.getImaginaryPart(),2)+Math.pow(b.getRealPart(),2)),((b.getRealPart()*a.getImaginaryPart())-(a.getRealPart()*b.getImaginaryPart()))/(Math.pow(b.getRealPart(),2)+Math.pow(b.getImaginaryPart(),2)));
     }

@@ -1,19 +1,29 @@
 package Main;
 
-import java.util.Arrays;
-
 public class ComplexMatrix {
 
     private ComplexNumber[][] matrix;
 
+    /**
+     * Complex matrix constructor
+     * @param rows Number of  rows of the new complex matrix
+     * @param columns Number of  columns of the new complex matrix
+     */
     public ComplexMatrix(int rows,int columns) {
         matrix= new ComplexNumber[rows][columns];
     }
 
+    /**
+     * Complex matrix constructor
+     * @param matrix Static Matrix with complex numbers in it.
+     */
     public ComplexMatrix(ComplexNumber[][] matrix) {
         this.matrix = matrix;
     }
 
+    /**
+     * Transpose de complex matrix.
+     */
     public void transpose(){
         ComplexNumber[][] t= new ComplexNumber[matrix[0].length][matrix.length];
         for (int row=0;row<matrix.length;row++){
@@ -24,6 +34,9 @@ public class ComplexMatrix {
         matrix=t;
     }
 
+    /**
+     * Conjugate the complex matrix.
+     */
     public void conjugate(){
         for (int row=0;row<matrix.length;row++){
             for(int column=0;column<matrix[row].length;column++){
@@ -33,11 +46,20 @@ public class ComplexMatrix {
     }
 
 
+    /**
+     * Make the adjoint form of thr complex matrix.
+     */
     public void adjoint(){
         transpose();
         conjugate();
     }
 
+    /**
+     * Gets an specific element of the complex matrix.
+     * @param row Row where is the element.
+     * @param column Column where is the element.
+     * @return The complex number that is in the given entry.
+     */
     public ComplexNumber get(int row,int column){
         return matrix[row][column];
     }
@@ -54,6 +76,9 @@ public class ComplexMatrix {
         matrix[row][column]=c;
     }
 
+    /**
+     * Makes the inverse form of the complex matrix.
+     */
     public void inverse(){
         for (int row=0;row<matrix.length;row++){
             for(int column=0;column<matrix[row].length;column++){
