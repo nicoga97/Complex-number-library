@@ -126,7 +126,7 @@ public class MathComplex {
     public static  ComplexMatrix action(ComplexMatrix a,ComplexMatrix b) throws MathComplexException {
         if(a.columnLength()!=a.rowLength()){
             throw new MathComplexException("The given matrix must be a square one.");
-        }else if(a.rowLength()!=b.rowLength() || b.columnLength()!=1){
+        }else if(a.rowLength()!=b.rowLength() || !b.isVector()){
             throw new MathComplexException("b must be a complex vector with same row lenght of matrix a");
         }else{
             return matrixMultiplication(a,b);
