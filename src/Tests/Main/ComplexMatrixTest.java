@@ -39,8 +39,8 @@ class ComplexMatrixTest {
         ComplexMatrix a=new ComplexMatrix(2,2);
         a.set(0,0,new ComplexNumber(7,0));
         a.set(1,0,new ComplexNumber(6,-5));
-        a.set(0,1,new ComplexNumber(6,-5));
-        a.set(0,1,new ComplexNumber(-3,0));
+        a.set(0,1,new ComplexNumber(6,5));
+        a.set(1,1,new ComplexNumber(-3,0));
         assertTrue(a.isHermitian());
     }
 }

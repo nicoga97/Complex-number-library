@@ -26,7 +26,7 @@ public class ComplexMatrix {
         matrix=new ComplexNumber[a.rowLength()][a.columnLength()];
         for (int row = 0; row < matrix.length; row++) {
             for (int column = 0; column < matrix[row].length; column++) {
-                matrix[column][row] = a.get(row,column);
+                matrix[row][column] = new ComplexNumber(a.get(row,column));
             }
         }
     }
@@ -133,6 +133,7 @@ public class ComplexMatrix {
     public boolean isHermitian(){
         ComplexMatrix a = new ComplexMatrix(this);
         a.adjoint();
+
         return this.equals(a);
     }
     @Override

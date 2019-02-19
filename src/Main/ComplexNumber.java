@@ -16,11 +16,17 @@ public class ComplexNumber {
         this.realPart = realPart;
     }
 
+    public ComplexNumber(ComplexNumber a){
+        this.imaginaryPart = a.getImaginaryPart();
+        this.realPart = a.getRealPart();
+    }
+
     /**
      * Conjugate the complex number.
      */
     public void conjugate() {
-        imaginaryPart = imaginaryPart * (-1);
+        if(imaginaryPart!=0){
+        imaginaryPart = imaginaryPart * (-1);}
     }
 
     /**
