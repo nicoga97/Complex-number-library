@@ -41,11 +41,18 @@ public class MathComplex {
         return new ComplexNumber(((a.getRealPart()*b.getRealPart())+(a.getImaginaryPart()*b.getImaginaryPart()))/(Math.pow(b.getImaginaryPart(),2)+Math.pow(b.getRealPart(),2)),((b.getRealPart()*a.getImaginaryPart())-(a.getRealPart()*b.getImaginaryPart()))/(Math.pow(b.getRealPart(),2)+Math.pow(b.getImaginaryPart(),2)));
     }
 
+    /**
+     * Make addition of two complex Matrices.
+     * @param a First adding up
+     * @param b Second adding up
+     * @return Answer of the addition of A and B.
+     * @throws MathComplexException
+     */
     public static ComplexMatrix matrixAddition(ComplexMatrix a,ComplexMatrix b) throws MathComplexException {
-        if(a.rowLenght()==b.rowLenght() && a.columnLenght()==b.columnLenght()){
-            ComplexMatrix response=new ComplexMatrix(a.rowLenght(),a.columnLenght());
-            for (int row=0;row<response.rowLenght();row++){
-                for(int column=0;column<response.columnLenght();column++){
+        if(a.rowLength()==b.rowLength() && a.columnLength()==b.columnLength()){
+            ComplexMatrix response=new ComplexMatrix(a.rowLength(),a.columnLength());
+            for (int row = 0; row<response.rowLength(); row++){
+                for(int column = 0; column<response.columnLength(); column++){
                     response.set(row,column,complexAdd(a.get(row,column),b.get(row,column)));
                 }
             }
@@ -55,21 +62,34 @@ public class MathComplex {
         }
     }
 
+    /**
+     * Make a complex matrix multiplication with an scalar complex number.
+     * @param a Complex Matrix
+     * @param b Scalar complex number
+     * @return Answer of the scalar multiplication of a and b.
+     */
     public static ComplexMatrix matrixScalarMultiplication(ComplexMatrix a, ComplexNumber b){
-        ComplexMatrix response=new ComplexMatrix(a.rowLenght(),a.columnLenght());
-        for (int row=0;row<a.rowLenght();row++){
-            for(int column=0;column<a.columnLenght();column++){
+        ComplexMatrix response=new ComplexMatrix(a.rowLength(),a.columnLength());
+        for (int row = 0; row<a.rowLength(); row++){
+            for(int column = 0; column<a.columnLength(); column++){
                 response.set(row,column,complexMultiplication(a.get(row,column),b));
             }
         }
         return response;
     }
 
+    /**
+     * Multiply two complex matrices.
+     * @param a Multiplicand of the operation.
+     * @param b Multiplying of the operation.
+     * @return Complex matrix result of the multiplication of a and b.
+     * @throws MathComplexException
+     */
     public static ComplexMatrix matrixMultiplication(ComplexMatrix a,ComplexMatrix b) throws MathComplexException {
-        if(a.columnLenght()==b.rowLenght()){
-            ComplexMatrix answer=new ComplexMatrix(a.rowLenght(),b.columnLenght());
-            for (int row=0;row<answer.rowLenght();row++){
-                for(int column=0;column<answer.columnLenght();column++){
+        if(a.columnLength()==b.rowLength()){
+            ComplexMatrix answer=new ComplexMatrix(a.rowLength(),b.columnLength());
+            for (int row = 0; row<answer.rowLength(); row++){
+                for(int column = 0; column<answer.columnLength(); column++){
                     answer.set(row,column,matrixByIndexMultiplication(a,b,row,column));
                 }
             }
@@ -79,14 +99,54 @@ public class MathComplex {
         }
     }
 
+    /**
+     * @param a Multiplicand of the operation.
+     * @param b Multiplying of the operation.
+     * @param r Row of index multiplication.
+     * @param c Column of index multiplication.
+     * @return Complex number result of the multiplication in the given indexes.
+     */
     private static ComplexNumber matrixByIndexMultiplication(ComplexMatrix a,ComplexMatrix b, int r, int c){
         ComplexNumber answer=new ComplexNumber(0,0);
-        for (int row=r ;row<a.columnLenght();row++){
-            for(int column=c;column<b.rowLenght();column++){
+        for (int row = r; row<a.columnLength(); row++){
+            for(int column = c; column<b.rowLength(); column++){
                 answer=complexAdd(answer,complexMultiplication(a.get(row,column),b.get(column,row)));
             }
         }
         return answer;
+    }
+
+    /**
+     * Multiplies a complex matrix n*n with a vector n
+     * @param a Complex matrix of n*n
+     * @param b Complex vector of n
+     * @return Action operation between a and b.
+     * @throws MathComplexException
+     */
+    public static  ComplexMatrix action(ComplexMatrix a,ComplexMatrix b) throws MathComplexException {
+        if(a.columnLength()!=a.rowLength()){
+            throw new MathComplexException("The given matrix must be a square one.");
+        }else if(a.rowLength()!=b.rowLength() || b.columnLength()!=1){
+            throw new MathComplexException("b must be a complex vector with same row lenght of matrix a");
+        }else{
+            return matrixMultiplication(a,b);
+        }
+    }
+
+    /**
+     * Returns inner product of two vectors
+     * @param a Vector
+     * @param b Vector
+     * @return Complex number result of inner product of a and b.
+     * @throws MathComplexException
+     */
+    private static ComplexNumber innerProduct(ComplexMatrix a,ComplexMatrix b) throws MathComplexException {
+        if(a.rowLength()!=b.rowLength()|| !a.isVector() || !b.isVector()){
+            throw new MathComplexException("The given objects must be vectors and must have same length");
+        }else{
+            a.transpose();
+            return matrixByIndexMultiplication(a,b,0,0);
+        }
     }
 
 }

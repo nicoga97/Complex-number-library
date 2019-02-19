@@ -47,7 +47,7 @@ public class ComplexMatrix {
 
 
     /**
-     * Make the adjoint form of thr complex matrix.
+     * Make the adjoint form of the complex matrix.
      */
     public void adjoint(){
         transpose();
@@ -64,11 +64,11 @@ public class ComplexMatrix {
         return matrix[row][column];
     }
 
-    public int columnLenght(){
+    public int columnLength(){
         return matrix[0].length;
     }
 
-    public int rowLenght(){
+    public int rowLength(){
         return matrix.length;
     }
 
@@ -87,6 +87,15 @@ public class ComplexMatrix {
         }
     }
 
+    /**
+     * Returns if the matrix is a vector
+     * @return True if the matrix is a vector.
+     */
+    public boolean isVector(){
+        if((rowLength()==0 || columnLength()==0)&& columnLength()!=rowLength()){
+            return true;
+        }else{return false;}
+    }
     @Override
     public String toString() {
         String str= "";
