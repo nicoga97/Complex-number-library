@@ -1,3 +1,5 @@
+package Main;
+
 import Main.ComplexNumber;
 import org.junit.jupiter.api.Test;
 
@@ -17,19 +19,19 @@ class ComplexNumberTest {
     void getModulus() {
         ComplexNumber a = new ComplexNumber(4,3);
         double d =a.getModulus();
-        assertTrue(d==5);
+        assertEquals(5, d);
     }
 
     @Test
     void getRealPart() {
         ComplexNumber a = new ComplexNumber(0,3);
-        assertTrue(a.getRealPart()==0);
+        assertEquals(0, a.getRealPart());
     }
 
     @Test
     void getPhase() {
         ComplexNumber a = new ComplexNumber(1,1);
-        assertTrue(a.getPhase()==(Math.PI/4));
+        assertEquals(a.getPhase(), (Math.PI / 4));
     }
 
     @Test
@@ -38,6 +40,5 @@ class ComplexNumberTest {
         double[] b =a.getAsPolar();
         assertTrue(b[0]==Math.sqrt(2) && b[1]==(-(Math.PI)/4));
     }
-
 
 }

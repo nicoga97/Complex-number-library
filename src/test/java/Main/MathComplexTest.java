@@ -1,3 +1,5 @@
+package Main;
+
 import Main.ComplexMatrix;
 import Main.ComplexNumber;
 import Main.MathComplex;
@@ -15,7 +17,7 @@ class MathComplexTest {
         ComplexNumber a = new ComplexNumber(3, -1);
         ComplexNumber b = new ComplexNumber(1, 4);
         ComplexNumber answ = new ComplexNumber(4, 3);
-        Assertions.assertTrue(MathComplex.complexAdd(a, b).equals(answ));
+        assertEquals(MathComplex.complexAdd(a, b), answ);
     }
 
     @Test
@@ -23,7 +25,7 @@ class MathComplexTest {
         ComplexNumber a = new ComplexNumber(3, -1);
         ComplexNumber b = new ComplexNumber(1, 4);
         ComplexNumber answ = new ComplexNumber(2, -5);
-        assertTrue(MathComplex.complexSubstraction(a, b).equals(answ));
+        assertEquals(MathComplex.complexSubstraction(a, b), answ);
     }
 
     @Test
@@ -31,7 +33,7 @@ class MathComplexTest {
         ComplexNumber a = new ComplexNumber(3, -2);
         ComplexNumber b = new ComplexNumber(1, 2);
         ComplexNumber answ = new ComplexNumber(7, 4);
-        assertTrue(MathComplex.complexMultiplication(a, b).equals(answ));
+        assertEquals(MathComplex.complexMultiplication(a, b), answ);
     }
 
     @Test
@@ -39,7 +41,7 @@ class MathComplexTest {
         ComplexNumber a = new ComplexNumber(-2, 1);
         ComplexNumber b = new ComplexNumber(1, 2);
         ComplexNumber answ = new ComplexNumber(0, 1);
-        assertTrue(MathComplex.complexDivision(a, b).equals(answ));
+        assertEquals(MathComplex.complexDivision(a, b), answ);
     }
 
 
@@ -111,7 +113,7 @@ class MathComplexTest {
         c.set(0,2,new ComplexNumber(26,0));
         c.set(1,2,new ComplexNumber(14,0));
         c.set(2,2,new ComplexNumber(20,-22));
-        assertTrue(MathComplex.matrixMultiplication(a,b).equals(c));
+        assertEquals(MathComplex.matrixMultiplication(a, b), c);
     }
 
     @Test
@@ -141,7 +143,7 @@ class MathComplexTest {
         b.set(1,0,new ComplexNumber(2,0));
         b.set(2,0,new ComplexNumber(0,0));
         ComplexNumber c =new ComplexNumber(36,0);
-        assertTrue(MathComplex.innerProduct(a,b).equals(c));
+        assertEquals(MathComplex.innerProduct(a, b), c);
     }
 
     @Test
@@ -160,7 +162,7 @@ class MathComplexTest {
         c.set(3,0,new ComplexNumber(12,0));
         c.set(4,0,new ComplexNumber(18,0));
         c.set(5,0,new ComplexNumber(9,0));
-        assertTrue(MathComplex.tensorProduct(a,b).equals(c));
+        assertEquals(MathComplex.tensorProduct(a, b), c);
     }
 
 

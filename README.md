@@ -1,4 +1,4 @@
-# Complex Numbers Library
+# Complex Number Library
 
 This is a java library in which you can find most of complex numbers, vectors and  matrix operations.
 
