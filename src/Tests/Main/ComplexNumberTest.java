@@ -1,5 +1,7 @@
 package Main;
 
+import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class ComplexNumberTest {
@@ -37,5 +39,6 @@ class ComplexNumberTest {
         double[] b =a.getAsPolar();
         assertTrue(b[0]==Math.sqrt(2) && b[1]==(-(Math.PI)/4));
     }
+
 
 }

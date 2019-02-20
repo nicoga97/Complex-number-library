@@ -8,7 +8,8 @@ public class ComplexNumber {
 
     /**
      * Complex number object constructor.
-     * @param realPart Real part of the complex number.
+     *
+     * @param realPart      Real part of the complex number.
      * @param imaginaryPart Imaginary part of the complex number.
      */
     public ComplexNumber(double realPart, double imaginaryPart) {
@@ -16,7 +17,7 @@ public class ComplexNumber {
         this.realPart = realPart;
     }
 
-    public ComplexNumber(ComplexNumber a){
+    public ComplexNumber(ComplexNumber a) {
         this.imaginaryPart = a.getImaginaryPart();
         this.realPart = a.getRealPart();
     }
@@ -25,12 +26,14 @@ public class ComplexNumber {
      * Conjugate the complex number.
      */
     public void conjugate() {
-        if(imaginaryPart!=0){
-        imaginaryPart = imaginaryPart * (-1);}
+        if (imaginaryPart != 0) {
+            imaginaryPart = imaginaryPart * (-1);
+        }
     }
 
     /**
      * Calculate the modulus of the complex number.
+     *
      * @return The modulus of the complex number.
      */
     public double getModulus() {
@@ -39,6 +42,7 @@ public class ComplexNumber {
 
     /**
      * Give the real part of the complex number.
+     *
      * @return Real part of the complex number.
      */
     public double getRealPart() {
@@ -47,6 +51,7 @@ public class ComplexNumber {
 
     /**
      * Calculates the phase of a complex number.
+     *
      * @return Phase of the complex number.
      */
     public double getPhase() {
@@ -62,14 +67,16 @@ public class ComplexNumber {
 
     /**
      * Changes the real part of the complex number.
+     *
      * @param realPart New real part value for the complex number.
      */
     public void setRealPart(double realPart) {
-                this.realPart = realPart;
+        this.realPart = realPart;
     }
 
     /**
      * Gives the imaginary part of a complex number.
+     *
      * @return Imaginary part of the complex  number.
      */
     public double getImaginaryPart() {
@@ -78,6 +85,7 @@ public class ComplexNumber {
 
     /**
      * Changes the imaginary  part of the complex number.
+     *
      * @param imaginaryPart New imaginary part value for the complex number.
      */
     public void setImaginaryPart(double imaginaryPart) {
@@ -88,8 +96,12 @@ public class ComplexNumber {
      * Apply the inverse form on the complex number.
      */
     public void inverse() {
-        realPart = -realPart;
-        imaginaryPart = -imaginaryPart;
+        if (realPart != 0) {
+            realPart = -realPart;
+        }
+        if (imaginaryPart != 0) {
+            imaginaryPart = -imaginaryPart;
+        }
     }
 
     @Override
@@ -99,7 +111,7 @@ public class ComplexNumber {
                     realPart +
                             " +" + imaginaryPart +
                             'i';
-        }else{
+        } else {
             return
                     realPart +
                             " " + imaginaryPart +

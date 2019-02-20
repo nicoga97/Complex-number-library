@@ -108,10 +108,8 @@ public class MathComplex {
      */
     private static ComplexNumber matrixByIndexMultiplication(ComplexMatrix a,ComplexMatrix b, int r, int c){
         ComplexNumber answer=new ComplexNumber(0,0);
-        for (int row = r; row<a.columnLength(); row++){
-            for(int column = c; column<b.rowLength(); column++){
-                answer=complexAdd(answer,complexMultiplication(a.get(row,column),b.get(column,row)));
-            }
+        for (int i = 0; i<a.columnLength(); i++){
+                 answer=complexAdd(answer,complexMultiplication(a.get(r,i),b.get(i,c)));
         }
         return answer;
     }
@@ -140,13 +138,33 @@ public class MathComplex {
      * @return Complex number result of inner product of a and b.
      * @throws MathComplexException
      */
-    private static ComplexNumber innerProduct(ComplexMatrix a,ComplexMatrix b) throws MathComplexException {
+    public static ComplexNumber innerProduct(ComplexMatrix a,ComplexMatrix b) throws MathComplexException {
         if(a.rowLength()!=b.rowLength()|| !a.isVector() || !b.isVector()){
             throw new MathComplexException("The given objects must be vectors and must have same length");
         }else{
             a.transpose();
-            return matrixByIndexMultiplication(a,b,0,0);
+            return matrixMultiplication(a,b).get(0,0);
         }
+    }
+
+    /**
+     * Return the tensor product between two complex matrices.
+     * @param a complex matrix
+     * @param b complex matrix
+     * @return tensor product between a and b.
+     */
+    public static ComplexMatrix tensorProduct(ComplexMatrix a, ComplexMatrix b){
+        ComplexMatrix answer= new ComplexMatrix(a.rowLength()*b.rowLength(),a.columnLength()*b.columnLength());
+        for (int row1 = 0; row1 < a.rowLength(); row1++) {
+            for (int column1 = 0; column1 < a.columnLength(); column1++) {
+                for (int row2 = 0; row2 < b.rowLength(); row2++) {
+                    for (int column2 = 0; column2 < b.columnLength(); column2++) {
+                        answer.set(row1*b.rowLength()+row2,column1*b.columnLength()+column2,MathComplex.complexMultiplication(a.get(row1,column1),b.get(row2,column2)));
+                    }
+                }
+            }
+        }
+        return answer;
     }
 
 }

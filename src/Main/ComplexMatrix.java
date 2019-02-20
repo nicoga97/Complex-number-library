@@ -130,12 +130,42 @@ public class ComplexMatrix {
         }
     }
 
+    /**
+     * Answers if the matrix is an hermitian one.
+     * @return true if the matrix is hermitian, false if not.
+     */
     public boolean isHermitian(){
         ComplexMatrix a = new ComplexMatrix(this);
         a.adjoint();
 
         return this.equals(a);
     }
+
+    /**
+     * Returns if the matrix is unitary or not.
+     * @return true if the matrix is unitary, false if not.
+     * @throws MathComplexException
+     */
+    public boolean isUnitary() throws MathComplexException {
+        if(columnLength()!=rowLength()){
+            return false;
+        }else{
+            ComplexMatrix a = new ComplexMatrix(this);
+            a.adjoint();
+            ComplexMatrix i =MathComplex.matrixMultiplication(this,a);
+            if(i.equals(MathComplex.matrixMultiplication(a,this))){
+                for (int row = 0; row < i.rowLength(); row++) {
+                    for (int column = 0; column < i.columnLength(); column++) {
+                        if((row==column && !i.get(row, column).equals(new ComplexNumber(1, 0)))|| (row!=column && !i.get(row, column).equals(new ComplexNumber(0, 0)))){
+                            return false;
+                        }
+                    }
+                }
+                return true;
+            }else{return false;}
+        }
+    }
+
     @Override
     public String toString() {
         String str = "";
@@ -155,6 +185,9 @@ public class ComplexMatrix {
     @Override
     public boolean equals(Object o) {
         if (o instanceof ComplexMatrix) {
+            if(((ComplexMatrix) o).columnLength()!=columnLength() || ((ComplexMatrix) o).rowLength()!=rowLength()){
+                return false;
+            }
             for (int row = 0; row < matrix.length; row++) {
                 for (int column = 0; column < matrix[row].length; column++) {
                     if (!matrix[row][column].equals(((ComplexMatrix) o).get(row, column))) {
