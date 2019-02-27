@@ -106,12 +106,15 @@ public class ComplexNumber {
 
     @Override
     public String toString() {
-        if (imaginaryPart >= 0) {
+        if (imaginaryPart > 0) {
             return
                     realPart +
                             " +" + imaginaryPart +
                             'i';
-        } else {
+        } else if(imaginaryPart == 0){
+            return
+                    realPart+"";
+        } else{
             return
                     realPart +
                             " " + imaginaryPart +
