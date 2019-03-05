@@ -111,9 +111,6 @@ public class ComplexNumber {
                     realPart +
                             " +" + imaginaryPart +
                             'i';
-        } else if(imaginaryPart == 0){
-            return
-                    realPart+"";
         } else{
             return
                     realPart +
