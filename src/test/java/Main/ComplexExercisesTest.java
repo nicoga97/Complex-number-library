@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class ComplexExercisesTest {
     @Test
-    void marbleExperimentWithBooleanMatrix() throws MathComplexException {
+        void marbleExperimentWithBooleanMatrix() throws MathComplexException {
         System.out.println("---------------Marble experiment with boolean matrix test----------------\n");
         ComplexMatrix a =new ComplexMatrix(6,6);
         for (int row = 0; row < a.rowLength(); row++) {
@@ -125,11 +125,11 @@ public class ComplexExercisesTest {
 
         System.out.println("Initial bullet State\n");
         System.out.println(state);
-        for(int i=0;i<4;i++){
+        for(int i=0;i<3;i++){
             state=MathComplex.action(a,state);
         }
 
-        System.out.println("Final state after 3 clicks.\n");
+        System.out.println("Final state after 2 clicks.\n");
         System.out.println(state);
         System.out.println("----------------------------Test Finished-------------------------------\n");
 
