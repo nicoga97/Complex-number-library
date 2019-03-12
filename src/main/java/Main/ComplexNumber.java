@@ -32,6 +32,13 @@ public class ComplexNumber {
     }
 
     /**
+     * Calculates the norm of the complex number
+     * @return norm of the complex number
+     */
+    public double norm(){
+        return Math.sqrt(Math.pow(realPart,2)+Math.pow(imaginaryPart,2));
+    }
+    /**
      * Calculate the modulus of the complex number.
      *
      * @return The modulus of the complex number.

@@ -114,7 +114,7 @@ public class ComplexMatrix {
      * @return The norm of the vector.
      * @throws MathComplexException
      */
-    public ComplexNumber norm() throws MathComplexException {
+    public double norm() throws MathComplexException {
         if (isVector()) {
             ComplexNumber norm = new ComplexNumber(0,0);
             for (int row = 0; row < matrix.length; row++) {
@@ -122,9 +122,10 @@ public class ComplexMatrix {
                     norm=MathComplex.complexAdd(norm,new ComplexNumber(Math.pow(matrix[row][column].getRealPart(),2),Math.pow(matrix[row][column].getImaginaryPart(),2)));
                 }
             }
+            double result=Math.sqrt(norm.getRealPart()+norm.getImaginaryPart());
             norm.setRealPart(Math.sqrt(norm.getRealPart()));
-            norm.setImaginaryPart(Math.sqrt(norm.getImaginaryPart()));
-            return norm;
+
+            return result;
         }else{
             throw new MathComplexException("The matrix is not a vector.");
         }

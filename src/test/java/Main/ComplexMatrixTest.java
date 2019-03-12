@@ -101,7 +101,7 @@ class ComplexMatrixTest {
         a.set(0,0,new ComplexNumber(3,0));
         a.set(1,0,new ComplexNumber(-6,0));
         a.set(2,0,new ComplexNumber(2,0));
-        assertEquals(a.norm(),new ComplexNumber(7,0));
+        assertEquals(a.norm(),7);
 
     }
 

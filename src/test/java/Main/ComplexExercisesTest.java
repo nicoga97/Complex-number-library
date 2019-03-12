@@ -1,7 +1,6 @@
 package Main;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 
 
 public class ComplexExercisesTest {
@@ -137,6 +136,41 @@ public class ComplexExercisesTest {
     @Test
     void complexSlitExperiment() throws MathComplexException {
         System.out.println("---------------2 complex  Slit experiment test----------------\n");
+        ComplexMatrix a =new ComplexMatrix(8,8);
+        for (int row = 0; row < a.rowLength(); row++) {
+            for (int column = 0; column < a.columnLength(); column++) {
+                a.set(row,column,new ComplexNumber(0,0));
+            }
+        }
+        a.set(1,0,new ComplexNumber( 1/Math.sqrt(2),0));
+        a.set(2,0,new ComplexNumber( 1/Math.sqrt(2),0));
+        a.set(3,1,new ComplexNumber( -1/Math.sqrt(6),1/Math.sqrt(6)));
+        a.set(4,1,new ComplexNumber( -1/Math.sqrt(6),-1/Math.sqrt(6)));
+        a.set(5,1,new ComplexNumber( 1/Math.sqrt(6),-1/Math.sqrt(6)));
+        a.set(5,2,new ComplexNumber( -1/Math.sqrt(6),1/Math.sqrt(6)));
+        a.set(6,2,new ComplexNumber( -1/Math.sqrt(6),-1/Math.sqrt(6)));
+        a.set(7,2,new ComplexNumber( 1/Math.sqrt(6),-1/Math.sqrt(6)));
+        a.set(3,3,new ComplexNumber( 1,0));
+        a.set(4,4,new ComplexNumber( 1,0));
+        a.set(5,5,new ComplexNumber( 1,0));
+        a.set(6,6,new ComplexNumber( 1,0));
+        a.set(7,7,new ComplexNumber( 1,0));
+
+
+
+        System.out.println("Probability complex matrix in initial state\n");
+        System.out.println(a);
+        a=MathComplex.matrixMultiplication(a,a);
+
+        System.out.println("Probability matrix after 2 clicks, in position 5,0 whe can see the interference\n");
+        System.out.println(a);
+
+        System.out.println("----------------------------Test Finished-------------------------------\n");
+
+    }
+    @Test
+    void firstQuantumSystemExperiment() throws MathComplexException {
+        System.out.println("---------------First quantum System test----------------\n");
         ComplexMatrix a =new ComplexMatrix(8,8);
         for (int row = 0; row < a.rowLength(); row++) {
             for (int column = 0; column < a.columnLength(); column++) {
