@@ -27,6 +27,41 @@ the final state of the system after 2 clicks.
 - **complexAmplitudeProbabilityObservation:** This test the ability of quantumOperations class to calculate the probability of a particle be found in a specific position.
 - **amplitudeOfTransition:** This test the ability of quantumOperations class to calculate the amplitude of transition between two complex amplitudes.
 
+## Double Slit Experiment
+The double slit experiment is one of the greatest mysterys in quantum physics. It consists, with a laser, pass two slits with a beam of light. Normally, you should think that the resulting figure is actually only two slits, but, it makes a patter of a lot of slits! A very weird behavior for us, but basic for the quantum world.
+
+
+### Explanation
+
+For the sake of basic concepts, it is going to be explained the simplest way possible. So, in physics, a light is pretty much a wave, so when this laser beam of light passes through the two slits, it becomes two expanded waves. But waves have this behavior that when they are overlapped, in some sections (depending of the position of both) they get cancelled. And because of that, it makes this effect like there is a lot of slits that don´t exist. This has a more complicated mathemathical explanation, that to make it short, the resulting probability of two complex numbers can be cero, something that doesn´t happen with only real numbers. This can be seen in a test in this ver library!
+
+The visual explanation of the experiment can be seen on this image:
+
+![alt text](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Two-Slit_Experiment_Light.svg/2000px-Two-Slit_Experiment_Light.svg.png)
+
+Note that the blue lines is where the light is going.
+
+### Prove
+
+So just in case it sounded too incredible, we decided to do the experiment ourselves. We tried to do it the best possible way,
+the configuration that we use is this one:
+
+![alt text](photo1.jpg)
+
+As it can be seen, a laser that emits a strong light that goes through a wooden frame that in the middle is the double slit holes. These holes are very small and ver close to each other, like in the following image:
+
+![alt text](photo3.jpg)
+
+And the result is:
+
+![alt text](photo2.jpg)
+
+Wow! The behavoir is exactly as it was describes earlier, a strange multiple-pattern has appeared in the wall! So that confirms the strange way that quantum physics works. Fascinating!
+
+Here you can see a video of the full experiment working:
+
+[Double Split Experiment Video](https://youtu.be/QI4jH9bxSb4)
+
 ## Built With
 
 * [Maven](https://maven.apache.org/) - Dependency Management
