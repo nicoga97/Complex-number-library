@@ -32,4 +32,26 @@ public class QuantumOperations {
         }
     }
 
+
+    public static ComplexNumber meanValue(ComplexMatrix observable, ComplexMatrix ket) throws MathComplexException {
+        if(!ket.isVector()){
+            throw new MathComplexException("The ket must be a vector");
+        }
+        if(!observable.isHermitian()){
+            throw new MathComplexException("The observable must be hermitian");
+        }
+        ComplexMatrix action= MathComplex.action(observable,ket);
+        action.conjugate();
+        return MathComplex.innerProduct(action,ket);
+    }
+
+
+    public static ComplexNumber variance(ComplexMatrix observable, ComplexMatrix ket) throws MathComplexException {
+        ComplexNumber meanValue= meanValue(observable,ket);
+        ComplexMatrix identityMatrix= MathComplex.generateIdentityMatrix(observable.columnLength());
+        ComplexMatrix res=MathComplex.matrixSubstraction(observable,MathComplex.matrixScalarMultiplication(identityMatrix,meanValue));
+        res=MathComplex.matrixMultiplication(res,res);
+        return meanValue(res,ket);
+    }
+
 }

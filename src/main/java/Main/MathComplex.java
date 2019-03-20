@@ -1,5 +1,8 @@
 package Main;
 
+/**
+ *
+ */
 public class MathComplex {
 
     /**
@@ -54,6 +57,26 @@ public class MathComplex {
             for (int row = 0; row<response.rowLength(); row++){
                 for(int column = 0; column<response.columnLength(); column++){
                     response.set(row,column,complexAdd(a.get(row,column),b.get(row,column)));
+                }
+            }
+            return response;
+        }else{
+            throw new MathComplexException("The given matrices do not have the same dimensions");
+        }
+    }
+    /**
+     * Make substraction of two complex Matrices.
+     * @param a Matrix to make the substraction
+     * @param b Matrix to make the substraction
+     * @return Answer of the substratction between A and B.
+     * @throws MathComplexException
+     */
+    public static ComplexMatrix matrixSubstraction(ComplexMatrix a,ComplexMatrix b) throws MathComplexException {
+        if(a.rowLength()==b.rowLength() && a.columnLength()==b.columnLength()){
+            ComplexMatrix response=new ComplexMatrix(a.rowLength(),a.columnLength());
+            for (int row = 0; row<response.rowLength(); row++){
+                for(int column = 0; column<response.columnLength(); column++){
+                    response.set(row,column,complexSubstraction(a.get(row,column),b.get(row,column)));
                 }
             }
             return response;
@@ -165,6 +188,26 @@ public class MathComplex {
             }
         }
         return answer;
+    }
+
+    /**
+     * Generates a identity matrix based on the given size.
+     * @param size , size of the idenitity matrix
+     * @return generated identity matrix
+     */
+    public static ComplexMatrix generateIdentityMatrix(int size){
+        ComplexMatrix identityMatrix=new ComplexMatrix(size,size);
+        for (int row = 0; row<identityMatrix.rowLength(); row++){
+            for(int column = 0; column<identityMatrix.columnLength(); column++){
+                if(row==column){
+                    identityMatrix.set(row,column,new ComplexNumber(1,0));
+                }else{
+                    identityMatrix.set(row,column,new ComplexNumber(1,0));
+                }
+
+            }
+        }
+        return identityMatrix;
     }
 
 }
