@@ -51,7 +51,10 @@ public class QuantumOperations {
         ComplexMatrix identityMatrix= MathComplex.generateIdentityMatrix(observable.columnLength());
         ComplexMatrix res=MathComplex.matrixSubstraction(observable,MathComplex.matrixScalarMultiplication(identityMatrix,meanValue));
         res=MathComplex.matrixMultiplication(res,res);
-        return meanValue(res,ket);
+        ket.adjoint();
+        res=MathComplex.matrixMultiplication(res,ket);
+        ket.adjoint();
+        return MathComplex.innerProduct(res,ket);
     }
 
 }
