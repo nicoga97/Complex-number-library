@@ -1,5 +1,7 @@
 package Main;
 
+import java.util.ArrayList;
+
 public class QuantumOperations {
 
     /**
@@ -33,6 +35,13 @@ public class QuantumOperations {
     }
 
 
+    /**
+     * Calculates the mean  value between an observable and a ket
+     * @param observable
+     * @param ket
+     * @return
+     * @throws MathComplexException
+     */
     public static ComplexNumber meanValue(ComplexMatrix observable, ComplexMatrix ket) throws MathComplexException {
         if(!ket.isVector()){
             throw new MathComplexException("The ket must be a vector");
@@ -46,15 +55,24 @@ public class QuantumOperations {
     }
 
 
+    /**
+     * Calculate the vereince between a observable and a ket
+     * @param observable observable  complex matrix.
+     * @param ket ket vector.
+     * @return the verience
+     * @throws MathComplexException
+     */
     public static ComplexNumber variance(ComplexMatrix observable, ComplexMatrix ket) throws MathComplexException {
         ComplexNumber meanValue= meanValue(observable,ket);
         ComplexMatrix identityMatrix= MathComplex.generateIdentityMatrix(observable.columnLength());
-        ComplexMatrix res=MathComplex.matrixSubstraction(observable,MathComplex.matrixScalarMultiplication(identityMatrix,meanValue));
+        ComplexMatrix res=MathComplex.matrixSubstraction(observable,MathComplex.matrixScalarMultiplication(identityMatrix,meanValue));;
         res=MathComplex.matrixMultiplication(res,res);
-        ket.adjoint();
-        res=MathComplex.matrixMultiplication(res,ket);
-        ket.adjoint();
-        return MathComplex.innerProduct(res,ket);
+
+        return meanValue;
     }
+
+
+
+
 
 }

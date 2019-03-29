@@ -26,7 +26,8 @@ the final state of the system after 2 clicks.
 ##### QuantumOperationTest
 - **complexAmplitudeProbabilityObservation:** This test the ability of quantumOperations class to calculate the probability of a particle be found in a specific position.
 - **amplitudeOfTransition:** This test the ability of quantumOperations class to calculate the amplitude of transition between two complex amplitudes.
-
+- **MeanValue:** This test the ability to calculate the mean value of a ket and observable.
+- **Variance:** This test the ability to calculate the variance of a ket and observable.
 ## Double Slit Experiment
 The double slit experiment is one of the greatest mysterys in quantum physics. It consists, with a laser, pass two slits with a beam of light. Normally, you should think that the resulting figure is actually only two slits, but, it makes a patter of a lot of slits! A very weird behavior for us, but basic for the quantum world.
 
